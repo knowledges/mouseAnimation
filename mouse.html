@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件</title>
+	<link rel="stylesheet" href="css/animation.css">
+</head>
+<body>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+	<div class="mouse">
+		<img src="images/1.jpg" alt="">
+		<span class="mask">哥斯拉</span>
+	</div>
+</body>
+<script src="js/jquery-1.10.2.js"></script>
+<script>
+// http://sentsin.com/web/112.html
+// http://tongdandanrrr.iteye.com/blog/2018794
+	window.onload = function () {
+		var oDiv = document.getElementsByTagName('div');
+
+		for(var i = 0 ; i<oDiv.length;i++){
+			oDiv[i].onmouseover = function (e) {
+				var w = $(this).width();
+				var h = $(this).height();
+				var x = (e.pageX - this.offsetLeft - (w / 2)) * (w > h ? (h / w):1);
+				var y = (e.pageY - this.offsetTop - (h / 2)) * (h > w ? (w / h):1);
+				var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+				//direction的值为“0, 1, 2, 3”分别对应着“上，右，下，左”
+				debugger;
+				// var eventType = e.type;
+				// var dirName = new Array('上方', '右侧', '下方', '左侧');
+				// if (e.type == 'mouseenter') {
+				// 	$("#result").html(dirName[direction] + '进入');
+				// }
+				// else {
+				// 	$('#result').html(dirName[direction] + '离开');
+				// }
+			};
+
+			oDiv[i].onmouseout = function (e) {
+				
+			};
+
+		}
+
+	}
+</script>
+</html>
